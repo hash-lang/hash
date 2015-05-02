@@ -41,11 +41,11 @@ Variable types are determined dynamically and do not need to be declared.
 Mutable variables are declared using the `var` keyword:
 
 ```Bash
-var a = 1
-a = 2     # the value of a is now 2
-var b     # a variable can be declared without assigning a value
-b = 1     # the value of b is now 1
-c = 1     # compile-time error: use of an undeclared variable
+var a = 1  # define variable a and assign 1
+a = 2      # the value of a is now 2
+var b      # a variable can be declared without assigning a value
+b = 1      # the value of b is now 1
+c = 1      # compile-time error: use of an undeclared variable
 ```
 
 
@@ -54,9 +54,9 @@ c = 1     # compile-time error: use of an undeclared variable
 Constants (values) are defined with the `val` keyword:
 
 ```Bash
-val a = 1
-a = 2     # compile-time error: constant cannot be mutated
-val b     # compile-time error: constant must be assigned a value when declared
+val a = 1  # define constant a to be equal to 1
+a = 2      # compile-time error: constant cannot be mutated
+val b      # compile-time error: constant must be assigned a value when declared
 ```
 
 
@@ -152,31 +152,31 @@ defined using square brackets, where commas between elements are optional:
 Lists can also be defined using the range syntax:
 
 ```Bash
-[0..5]     # yields [0 1 2 3 4 5]
-[5..0]     # yields [5 4 3 2 1 0]
-[0 2..10]  # yields [0 2 4 6 8 10]
+[0..5]             # yields [0 1 2 3 4 5]
+[5..0]             # yields [5 4 3 2 1 0]
+[0 2..10]          # yields [0 2 4 6 8 10]
 ```
 
 List elements can be accessed by index:
 
 ```Bash
-val a = [0..5]
-a[2]  # yields 3
+val a = [0..5]     # a contains [0 1 2 3 4 5]
+a[2]               # yields 3
 ```
 
 Lists can be sliced:
 
 ```Bash
-var a = [0 2..10]
-a[0:2]  # yields [0 2 4]
+val a = [0 2..10]  # a contains [0 2 4 6 8 10]
+a[0:2]             # yields [0 2 4]
 ```
 
 Similarly to Python, `a[i:j]` is a slice of `a` from `i` to `j`, `a[i:j:k]` is a
 slice of `a` from `i` to `j` with step `k`.
 
 ```Bash
-val a = [5..10]
-a[0:4:2]  # yields [5 7 9]
+val a = [5..10]    # a contains [5 6 7 8 9 10]
+a[0:4:2]           # yields [5 7]
 ```
 
 List comprehensions are also supported:
