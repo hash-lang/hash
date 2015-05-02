@@ -745,8 +745,11 @@ Hash
 
 ```Bash
 rm -f (find / -name "core") all> /dev/null
+```
 
-# shorter version using _ to ignore the target
+Hash (alternative using `_` to ignore the output target)
+
+```Bash
 rm -f (find / -name "core") all>_
 ```
 
@@ -822,8 +825,8 @@ Bash
 ```Bash
 HELLO=Hello
 function hello {
-   local HELLO=World
-   echo $HELLO
+    local HELLO=World
+    echo $HELLO
 }
 echo $HELLO  # outputs: Hello
 hello        # outputs: World
@@ -849,7 +852,7 @@ Bash
 
 ```Bash
 if [ "foo" = "foo" ]; then
-   echo expression evaluated as true
+    echo expression evaluated as true
 fi
 ```
 
@@ -867,9 +870,9 @@ Bash
 
 ```Bash
 if [ "foo" = "foo" ]; then
-   echo expression evaluated as true
+    echo expression evaluated as true
 else
-   echo expression evaluated as false
+    echo expression evaluated as false
 fi
 ```
 
@@ -891,9 +894,9 @@ Bash
 T1="foo"
 T2="bar"
 if [ "$T1" = "$T2" ]; then
-   echo expression evaluated as true
+    echo expression evaluated as true
 else
-   echo expression evaluated as false
+    echo expression evaluated as false
 fi
 ```
 
@@ -915,7 +918,7 @@ Bash
 
 ```Bash
 for i in $( ls ); do
-   echo item: $i
+    echo item: $i
 done
 ```
 
@@ -943,7 +946,7 @@ Bash
 ```Bash
 for i in `seq 1 10`;
 do
-   echo $i
+    echo $i
 done
 ```
 
@@ -969,7 +972,7 @@ Bash
 COUNTER=0
 while [ $COUNTER -lt 10 ]; do
     echo The counter is $COUNTER
-   let COUNTER=COUNTER+1
+    let COUNTER=COUNTER+1
 done
 ```
 
@@ -990,8 +993,8 @@ Bash
 ```Bash
 COUNTER=20
 until [ $COUNTER -lt 10 ]; do
-   echo COUNTER $COUNTER
-   let COUNTER-=1
+    echo COUNTER $COUNTER
+    let COUNTER-=1
 done
 ```
 
@@ -1011,10 +1014,10 @@ Bash
 
 ```Bash
 function quit {
-   exit
+    exit
 }
 function hello {
-   echo Hello!
+    echo Hello!
 }
 hello
 quit
@@ -1038,10 +1041,10 @@ Bash
 
 ```Bash
 function quit {
-   exit
+    exit
 }
 function e {
-   echo $1
+    echo $1
 }
 e Hello
 e World
@@ -1068,15 +1071,15 @@ Bash
 ```Bash
 OPTIONS="Hello Quit"
 select opt in $OPTIONS; do
-   if [ "$opt" = "Quit" ]; then
-       echo done
-       exit
-   elif [ "$opt" = "Hello" ]; then
-       echo Hello World
-   else
-       clear
-       echo bad option
-   fi
+    if [ "$opt" = "Quit" ]; then
+        echo done
+        exit
+    elif [ "$opt" = "Hello" ]; then
+        echo Hello World
+    else
+        clear
+        echo bad option
+    fi
 done
 ```
 
@@ -1118,8 +1121,8 @@ Bash
 
 ```Bash
 if [ -z "$1" ]; then
-   echo usage: $0 directory
-   exit
+    echo usage: $0 directory
+    exit
 fi
 SRCD=$1
 TGTD="/var/backups/"
@@ -1232,7 +1235,7 @@ Bash
 DBS=`mysql -uroot -e"show databases"`
 for b in $DBS ;
 do
-   mysql -uroot -e"show tables from $b"
+    mysql -uroot -e"show tables from $b"
 done
 ```
 
@@ -1279,11 +1282,11 @@ S1='string'
 S2='String'
 if [ $S1=$S2 ];
 then
-   echo "S1('$S1') is not equal to S2('$S2')"
+    echo "S1('$S1') is not equal to S2('$S2')"
 fi
 if [ $S1=$S1 ];
 then
-   echo "S1('$S1') is equal to S1('$S1')"
+    echo "S1('$S1') is equal to S1('$S1')"
 fi
 ```
 
@@ -1353,51 +1356,51 @@ Bash
 
 ```Bash
 if [ $1 = p ]; then
-   prefix=$2 ; shift ; shift
-   if [$1 = ]; then
-       echo "no files given"
-       exit 0
-   fi
+    prefix=$2 ; shift ; shift
+    if [$1 = ]; then
+        echo "no files given"
+        exit 0
+    fi
 
-   for file in $*
-   do
-       mv ${file} $prefix$file
-   done
+    for file in $*
+    do
+        mv ${file} $prefix$file
+    done
 
-   exit 0
+    exit 0
 fi
 if [ $1 = s ]; then
-   suffix=$2 ; shift ; shift
+    suffix=$2 ; shift ; shift
 
-   if [$1 = ]; then
-       echo "no files given"
-       exit 0
-   fi
+    if [$1 = ]; then
+        echo "no files given"
+        exit 0
+    fi
 
-   for file in $*
-   do
-       mv ${file} $file$suffix
-   done
+    for file in $*
+    do
+        mv ${file} $file$suffix
+    done
 
-   exit 0
+    exit 0
 fi
 
 if [ $1 = r ]; then
-   shift
+    shift
 
-   if [ $# -lt 3 ] ; then
-       echo "usage: renna r [expression] [replacement] files... "
-       exit 0
-   fi
+    if [ $# -lt 3 ] ; then
+        echo "usage: renna r [expression] [replacement] files... "
+        exit 0
+    fi
 
-   OLD=$1 ; NEW=$2 ; shift ; shift
+    OLD=$1 ; NEW=$2 ; shift ; shift
 
-   for file in $*
-   do
-       new=`echo ${file} | sed s/${OLD}/${NEW}/g`
-       mv ${file} $new
-   done
-   exit 0
+    for file in $*
+    do
+        new=`echo ${file} | sed s/${OLD}/${NEW}/g`
+        mv ${file} $new
+    done
+    exit 0
 fi
 
 echo "usage;"
@@ -1463,9 +1466,9 @@ replace=$3
 
 for i in $( ls *$criteria* );
 do
-   src=$i
-   tgt=$(echo $i | sed -e "s/$re_match/$replace/")
-   mv $src $tgt
+    src=$i
+    tgt=$(echo $i | sed -e "s/$re_match/$replace/")
+    mv $src $tgt
 done
 ```
 
