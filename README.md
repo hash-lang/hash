@@ -1,7 +1,7 @@
-﻿# Hash - language for happy shell scripting
+﻿# Hash -- language for happy shell scripting
 
 This project attempts to address the problem that many of us face when writing
-shell scripts - dealing with the idiosyncratic behavior and syntax of Bash and
+shell scripts -- dealing with the idiosyncratic behavior and syntax of Bash and
 other shell scripting languages. The goal is to design a modern language that
 could replace Bash for a whole range of scripts: from simple one-liners to
 complex multi-module projects. Hash scripts will compile to Bash scripts for
@@ -24,7 +24,7 @@ These goals will be achieved through the following features:
   - First-class support for command-line argument parsing and validation
   - Built-in mechanism for importing 3rd-party libraries, e.g., directly from
     Github
-  - Batteries included - rich and versatile standard library
+  - Batteries included -- rich and versatile standard library
 
 This document is a work in progress exploring the design of the language and its
 feature set. The implementation has not started yet and the timeline is not
