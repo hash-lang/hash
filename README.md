@@ -1,7 +1,7 @@
-﻿# Hash -- language for happy shell scripting
+﻿# Hash – language for happy shell scripting
 
 This project attempts to address the problem that many of us face when writing
-shell scripts -- dealing with the idiosyncratic behavior and syntax of Bash and
+shell scripts – dealing with the idiosyncratic behavior and syntax of Bash and
 other shell scripting languages. The goal is to design a modern language that
 could replace Bash for a whole range of scripts: from simple one-liners to
 complex multi-module projects. Hash scripts will compile to Bash scripts for
@@ -24,7 +24,7 @@ These goals will be achieved through the following features:
   - First-class support for command-line argument parsing and validation
   - Built-in mechanism for importing 3rd-party libraries, e.g., directly from
     Github
-  - Batteries included -- rich and versatile standard library
+  - Batteries included – rich and versatile standard library
 
 This document is a work in progress exploring the design of the language and its
 feature set. The implementation has not started yet and the timeline is not
@@ -42,10 +42,10 @@ Mutable variables are declared using the `var` keyword:
 
 ```Bash
 var a = 1
-a = 2  # the value of a is now 2
-var b  # a variable can be declared without assigning a value
-b = 1  # the value of b is now 1
-c = 1  # compile-time error: use of an undeclared variable
+a = 2     # the value of a is now 2
+var b     # a variable can be declared without assigning a value
+b = 1     # the value of b is now 1
+c = 1     # compile-time error: use of an undeclared variable
 ```
 
 
@@ -55,8 +55,8 @@ Constants (values) are defined with the `val` keyword:
 
 ```Bash
 val a = 1
-a = 2  # compile-time error: constant cannot be mutated
-val b  # compile-time error: constant must be assigned a value when declared
+a = 2     # compile-time error: constant cannot be mutated
+val b     # compile-time error: constant must be assigned a value when declared
 ```
 
 
