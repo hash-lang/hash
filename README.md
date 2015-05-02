@@ -1,4 +1,4 @@
-﻿# Hash - a language for happy shell scripting
+﻿# Hash - language for happy shell scripting
 
 This project attempts to address the problem that many of us face when writing
 shell scripts - dealing with the idiosyncratic behavior and syntax of Bash and
@@ -924,8 +924,11 @@ Hash
 ```Bash
 for i in (ls)
     echo "item: $i"
+```
 
-# alternative using map
+Hash (alternative using map)
+
+```Bash
 map (ls) (echo "item: $_")
 
 # or just
@@ -949,8 +952,11 @@ Hash
 ```Bash
 for i in [1..10]
     echo i
+```
 
-# alternative using map
+Hash (alternative using map)
+
+```Bash
 map [1..10] echo
 ```
 
@@ -1088,8 +1094,11 @@ while true
     else
         clear
         echo "bad option"
+```
 
-# alternative using switch
+Hash (alternative using switch)
+
+```Bash
 while true
     switch (select "Hello Quit")
         case "Quit"
@@ -1205,8 +1214,11 @@ cd /data all>_
 echo "rv: $status"
 cd (pwd) all>_
 echo "rv: $status"
+```
 
-# alternative using ?
+Hash (alternative using ?)
+
+```Bash
 echo "rv: (cd? /data all>_)"
 echo "rv: (cd? (pwd) all>_)"
 ```
@@ -1415,8 +1427,11 @@ else
     for file in @args[3:]
         val new = echo file | sed "s/@old/@repl/g"
         mv file new
+```
 
-# alternative using switch
+Hash (alternative using switch)
+
+```Bash
 @1 as @mode: 'Mode of matching'
 @2 as @prefix @suffix @old: 'Prefix, suffix, or old depending on the mode'
 @3 as @repl: 'The replacement' optional
